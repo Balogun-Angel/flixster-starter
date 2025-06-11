@@ -33,7 +33,7 @@ const App = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button type="submit">Search</button>
-          <button type="button" onClick={handleNowPlaying}>Now Playing</button>
+          <button type="button" onClick={handleNowPlaying}>Clear</button>
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}

@@ -30,7 +30,7 @@ function MovieModal({ movie, onClose }) {
 
       <h2>{details.title || movie.title}</h2>
 
-      {detakvutlknndnjbuthdcrackdrop_path && (
+      {details.backdrop_path && (
         <img
           src={`https://image.tmdb.org/t/p/w780${details.backdrop_path}`}
           alt={details.title}
@@ -63,12 +63,9 @@ function MovieModal({ movie, onClose }) {
         Trailer not available.
         </p>
       )}
-
-
-      
     </div>
-  </div>
-);
+    </div>
+  );
 
 }
 
