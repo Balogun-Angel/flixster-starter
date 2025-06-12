@@ -3,21 +3,26 @@ import MovieCard from './MovieCard';
 import MovieModal from './MovieModal';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
+const API_BASE_URL='https://api.themoviedb.org/3';
+const NOW_PLAYING_ENDPOINT=`${API_BASE_URL}/movie/now_playing`;
+const SEARCH_ENDPOINT =`${API_BASE_URL}/search/movie`;
 
-function MovieList({ searchQuery, mode }) {
+
+
+function MovieList({ searchQuery, mode, sortOption }) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [error , setError]=useState(null);
 
   // 🔁 This runs every time the mode, query, or page changes
   useEffect(() => {
     const fetchMovies = async () => {
-      let url;
-
+      let url="";
       if (mode === 'search') {
-        url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}&page=${page}`;
+        url = `${SEARCH_ENDPOINT}?api_key=${API_KEY}&query=${searchQuery}&page=${page}`;
       } else {
-        url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`;
+        url = `${NOW_PLAYING_ENDPOINT}?api_key=${API_KEY}&language=en-US&page=${page}`;
       }
 
       try {
@@ -33,6 +38,7 @@ function MovieList({ searchQuery, mode }) {
         }
       } catch (err) {
         console.error('Fetch error:', err);
+        setError('Oops! Something went wrong. Please try again. ');
       }
     };
 
@@ -44,10 +50,21 @@ function MovieList({ searchQuery, mode }) {
     setPage(prev => prev + 1);
   };
 
+  const sortedMovies=[...movies].sort((a,b)=>{
+    if(sortOption ==="title"){
+      return a.title.localeCompare(b.title);
+    }else if(sortOption==="release"){
+      return new Date(b.release_date)-new Date(a.release_date);
+    }else if (sortOption ==="rating"){
+      return b.vote_average - a.vote_average;
+    }
+    return 0;
+  });
+
   return (
     <>
       <div className="movie-grid">
-        {movies.map((movie) => (
+        {sortedMovies.map((movie) => (
           <MovieCard
             key={movie.id}
             title={movie.title}

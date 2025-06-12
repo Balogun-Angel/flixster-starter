@@ -7,20 +7,17 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [mode, setMode] = useState('nowPlaying');
   const [sortOption, setSortOption] = useState('');
-
-
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim() !== '') {
       setMode('search');
     }
   };
-
   const handleNowPlaying = () => {
     setSearchQuery('');
     setMode('nowPlaying');
   };
-
+  
   return (
     <div className="App">
       <header>

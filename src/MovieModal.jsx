@@ -66,7 +66,6 @@ function MovieModal({ movie, onClose }) {
     </div>
     </div>
   );
-
 }
 
 export default MovieModal;
