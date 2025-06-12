@@ -77,8 +77,6 @@ button:hover {
   font-size: 0.9rem;
   margin-top: 2rem;
 }
-
-
 /* Flexbox for the movie grid */
 .movie-grid {
   display: grid;
@@ -89,7 +87,6 @@ button:hover {
   margin: 0 auto;
   margin-bottom: 4rem;
 }
-
 
 .movie-card {
   background: white;
@@ -108,8 +105,6 @@ button:hover {
   color: black;
   font-weight: bold; /* optional */
 }
-
-
 
 .movie-card img {
   width: 100%;
@@ -137,8 +132,6 @@ button:hover {
   max-width: 1400px;
   margin: 0 auto;
 }
-
-
 
 .modal-overlay {
   position: fixed;
@@ -191,7 +184,6 @@ input {
   border: 1px solid #444;
 }
 
-
 .modal-backdrop {
   width: 100%;
   border-radius: 8px;
@@ -211,7 +203,6 @@ input {
   text-align: center;
 }
 
-
 .modal-content img {
   width: 100%;
   border-radius: 10px;
@@ -222,9 +213,10 @@ input {
   font-weight: bold;
 }
 
-
-
-
+.favorite-btn:hover{
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
 @media screen and (max-width: 600px) {
   .movie-card {
     width: 100%;
@@ -235,7 +227,6 @@ input {
     gap: 10px;
   }
 
-  
   input[type="text"] {
     width: 100%;
   }
