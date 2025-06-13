@@ -73,7 +73,7 @@ const App = () => {
       </header>
 
       <div className="app-layout">
-        <Sidebar onSelectView={setView} /> {/* Add Sidebar here */}
+        <Sidebar onSelectView={setView} /> 
         <main className="main-content">
           <MovieList
             searchQuery={searchQuery}

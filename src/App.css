@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-header {
@@ -11,6 +14,11 @@
   justify-content: space-evenly;
   color: white;
   padding: 20px;
+}
+
+.app-layout{
+  flex: 1;
+  display:flex;
 }
 
 /* General styling */
@@ -39,6 +47,10 @@ input[type="text"] {
   border-radius: 5px;
   border: none;
   width: 250px;
+}
+
+.main-content{
+  flex:1;
 }
 
 button {
@@ -127,22 +139,29 @@ button:hover {
   bottom:0.5rem;
   right: 0.5rem;
   display:flex;
-  gap:0.3rem;
   justify-content: space-between;
   padding: 0 10px;
-  margin-top: 5px;
+  margin-top: 8px;
   transition: opacity 0.3s ease;
+  align-items: center;
 
 }
 
 .icon-btn{
-  background:none;
+  background:transparent;
   border: none;
   font-size: 0.8rem;
   padding:5px;
   color:#444;
   cursor: pointer;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover{
+  opacity: 0.8;
 }
 
 .heart-btn {
@@ -151,6 +170,7 @@ button:hover {
   font-size: 1.3rem;
   cursor: pointer;
   transition: transform 0.2s ease;
+  color: gray;
 }
 
 .heart-btn:hover {
@@ -160,6 +180,12 @@ button:hover {
 .heart-btn.favorited {
   color: red !important;
 }
+
+.icon-btn.eye-btn{
+  color:gray;
+  margin-left: 20px;
+}
+
 
 .movie-grid {
   display: flex;
@@ -255,9 +281,9 @@ input {
 }
 
 .sidebar-wrapper {
-  position: fixed;
-  top: 100px;
-  left: 10px;
+  position: absolute;
+  top: 10rem;
+  left: 2rem;
   z-index: 1000;
 }
 

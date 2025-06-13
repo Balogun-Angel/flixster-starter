@@ -48,11 +48,10 @@ function MovieList({ searchQuery, mode, sortOption, view}) {
         const res = await fetch(url);
         const data = await res.json();
 
-        // ✅ If page is 1, it's a new search — replace the list
         if (page === 1) {
           setMovies(data.results);
+
         } else {
-          // ✅ If page > 1, append new results
           setMovies(prev => [...prev, ...data.results]);
         }
       } catch (error) {
@@ -105,7 +104,7 @@ function MovieList({ searchQuery, mode, sortOption, view}) {
       </div>
 
       {/* ⬇️ Load More button appears only if movies were fetched */}
-      {movies.length > 0 && (
+      {view === 'home' && movies.length > 0 && (
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
           <button onClick={loadMore} className="load-more-btn">
             Load More

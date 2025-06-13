@@ -5,7 +5,6 @@ import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 
 function MovieCard({ title, posterPath, voteAverage, onClick,isWatched,toggleWatched, toggleFavorite,isFavorited }) {
   const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
-  console.log(isFavorited);
 
  
   return (
