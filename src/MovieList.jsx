@@ -9,11 +9,30 @@ const SEARCH_ENDPOINT =`${API_BASE_URL}/search/movie`;
 
 
 
-function MovieList({ searchQuery, mode, sortOption }) {
+function MovieList({ searchQuery, mode, sortOption, view}) {
+  const [favorites, setFavorites]= useState(new Set());
+  const [watched, setWatched]=useState(new Set());
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error , setError]=useState(null);
+
+  const toggleFavorite= (id) => {
+    setFavorites((prev) =>{
+      console.log(prev);
+      const newSet = new Set(prev);
+      newSet.has(id) ? newSet.delete(id) : newSet.add(id);
+      return newSet;
+    })
+  }
+
+  const toggleWatched= (id) => {
+    setWatched((prev) =>{
+      const newSet = new Set(prev);
+      newSet.has(id) ? newSet.delete(id) : newSet.add(id);
+      return newSet;
+    })
+  }
 
   // 🔁 This runs every time the mode, query, or page changes
   useEffect(() => {
@@ -36,8 +55,8 @@ function MovieList({ searchQuery, mode, sortOption }) {
           // ✅ If page > 1, append new results
           setMovies(prev => [...prev, ...data.results]);
         }
-      } catch (err) {
-        console.error('Fetch error:', err);
+      } catch (error) {
+        console.error('Fetch error:', error);
         setError('Oops! Something went wrong. Please try again. ');
       }
     };
@@ -61,16 +80,26 @@ function MovieList({ searchQuery, mode, sortOption }) {
     return 0;
   });
 
+  const filteredMovies = sortedMovies.filter((movie) => {
+    if (view === 'favorites') return favorites.has(movie.id);
+    if (view === 'watched') return watched.has(movie.id);
+    return true; // for 'home' or any default view
+  });
+
   return (
     <>
       <div className="movie-grid">
-        {sortedMovies.map((movie) => (
+        {filteredMovies.map((movie) => (
           <MovieCard
             key={movie.id}
             title={movie.title}
             posterPath={movie.poster_path}
             voteAverage={movie.vote_average}
             onClick={() => setSelectedMovie(movie)}
+            isFavorited={favorites.has(movie.id)}
+            isWatched={watched.has(movie.id)}
+            toggleFavorite={() => toggleFavorite(movie.id)}
+            toggleWatched={() => toggleWatched(movie.id)}
           />
         ))}
       </div>

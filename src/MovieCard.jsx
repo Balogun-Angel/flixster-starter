@@ -1,30 +1,35 @@
 import {useState} from 'react';
-function MovieCard({ title, posterPath, voteAverage, onClick }) {
-  const [isFavorited, setIsFavorited]=useState(false);
-  const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
-  const toggleFavorite=(e)=>{
-    e.stopPropagation();
-    setIsFavorited(!isFavorited);
-  };
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 
+
+function MovieCard({ title, posterPath, voteAverage, onClick,isWatched,toggleWatched, toggleFavorite,isFavorited }) {
+  const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
+  console.log(isFavorited);
+
+ 
   return (
     <div className="movie-card" onClick={onClick}>
       <img src={posterUrl} alt={title} />
       <p className="movie-title">{title}</p>
       <p>⭐ {voteAverage}</p>
 
-      <button
-        onClick={toggleFavorite}
-        className="favorite_btn"
-        style={{
-          border:'none',
-          background:'transparent',
-          fontSize:'1.5rem',
-          cursor:'pointer',
-        }}
-        >
-          {isFavorited ? '❤️':'🤍'}
+      <div className="movie-card-buttons">
+        <button className="icon_btn eye-btn" onClick={(e) => { e.stopPropagation(); toggleWatched(); }}>
+          <FontAwesomeIcon icon={isWatched ? faEye : faEyeSlash} />
         </button>
+
+        <button
+          className={`icon_btn heart-btn ${isFavorited ? 'favorited' : ''}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFavorite();
+          }}
+        >
+          {isFavorited ? '❤️' : '🤍'}
+        </button>
+      </div>
+      
     </div>
   );
 }

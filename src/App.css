@@ -78,23 +78,23 @@ button:hover {
   margin-top: 2rem;
 }
 /* Flexbox for the movie grid */
-.movie-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  margin-bottom: 4rem;
+.movie-card {
+  flex: 1 1 calc(20% - 1.5rem); 
+  max-width: 200px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  transition: transform 0.2s ease;
 }
 
-.movie-card {
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 220px; /* bump up from default like 180px */
-  transition: transform 0.2s ease;
+.movie-card .movie-card-buttons{
+  display: none;
+}
+
+.movie-card:hover .movie-card-buttons{
+  display: block;
+  opacity: 1;
 }
 
 .movie-card:hover {
@@ -108,9 +108,8 @@ button:hover {
 
 .movie-card img {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
+  height: auto;
+  border-radius: 10px;
 }
 
 .movie-card h3 {
@@ -123,14 +122,51 @@ button:hover {
   color: black;
 }
 
+.movie-card-buttons{
+  position: absolute;
+  bottom:0.5rem;
+  right: 0.5rem;
+  display:flex;
+  gap:0.3rem;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-top: 5px;
+  transition: opacity 0.3s ease;
+
+}
+
+.icon-btn{
+  background:none;
+  border: none;
+  font-size: 0.8rem;
+  padding:5px;
+  color:#444;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.heart-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.heart-btn:hover {
+  transform: scale(1.2);
+}
+
+.heart-btn.favorited {
+  color: red !important;
+}
+
 .movie-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
+  display: flex;
+  flex-wrap:wrap ;
   gap: 1rem;
-  padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 1rem;
+  justify-content: center;
 }
 
 .modal-overlay {
@@ -217,6 +253,44 @@ input {
   transform: scale(1.1);
   transition: transform 0.2s;
 }
+
+.sidebar-wrapper {
+  position: fixed;
+  top: 100px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.sidebar-toggle {
+  font-size: 1.5rem;
+  background: #333;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sidebar button {
+  background: #eee;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: black;
+}
+
+.sidebar button:hover {
+  background: #444;
+  color: white;
+}
+
 @media screen and (max-width: 600px) {
   .movie-card {
     width: 100%;
@@ -234,6 +308,11 @@ input {
   .search-bar form {
     flex-direction: column;
   }
+
+  .movie-grid{
+    grid-template-columns: repeat(auto-fill, minimax(140px,1fr));
+  }
 }
+
 
 
