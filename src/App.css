@@ -101,11 +101,11 @@ button:hover {
 }
 
 .movie-card .movie-card-buttons{
-  display: none;
+   display: none; 
 }
 
 .movie-card:hover .movie-card-buttons{
-  display: block;
+  display: flex;
   opacity: 1;
 }
 
@@ -135,15 +135,16 @@ button:hover {
 }
 
 .movie-card-buttons{
-  position: absolute;
+  /* position: absolute; */
   bottom:0.5rem;
   right: 0.5rem;
   display:flex;
   justify-content: space-between;
-  padding: 0 10px;
+  /* padding: 0 10px; */
   margin-top: 8px;
   transition: opacity 0.3s ease;
-  align-items: center;
+  /* align-items: center; */
+  width:100%;
 
 }
 
@@ -183,7 +184,7 @@ button:hover {
 
 .icon-btn.eye-btn{
   color:gray;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 
