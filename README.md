@@ -12,9 +12,9 @@ Currently, two official plugins are available:
 
 Submitted by: Angel Balogun
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: 20
 
-Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Flixster Deployed Site](https://my-flixster-starter.onrender.com/)
 
 ### Application Features
 
@@ -65,7 +65,7 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
     - [x ] When a sort option is clicked, movies display in a grid according to selected criterion.
   - [ x] Website displays:
     - [x ] Header section
-    - [ ] Banner section
+    - [x ] Banner section
     - [ x] Search bar
     - [x ] Movie grid
     - [x ] Footer section
@@ -98,8 +98,8 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
   - [x ] If the movie is already watched:
     - [x] Clicking on the visual element should mark the movie as *not* watched.
     - [ x] There should be visual feedback (such as the eye turning a different color) to show that the movie has not been watched.
-- [ ] **Sidebar**
-  - [ ] The website includes a side navigation bar.
+- [ x] **Sidebar**
+  - [ x] The website includes a side navigation bar.
   - [x ] The sidebar has three pages:
     - [x ] Home
     - [ x] Favorites
@@ -110,23 +110,21 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+ https://www.loom.com/share/00911b08e15744fcac23a5f076e05668?sid=81a156ab-386e-42fc-89d7-e581af46c3de
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Add your response here :Yes the topic taught this week really helped me, i got a better understanding on how to implement search functions, how to embed youtube links.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+Add your response here :i would definitely work more on the styling and try to make the ui experience better
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Add your response here Yes most of my peers had very interactive UI's and i would love to try that next time.
 
 ### Open-source libraries used
 
@@ -135,3 +133,4 @@ Add your response here
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+bob!!, Terrence!!, TJ!!.
