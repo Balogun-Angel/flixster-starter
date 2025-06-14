@@ -16,14 +16,14 @@
   padding: 20px;
 }
 
-.app-layout{
+.app-layout {
   flex: 1;
-  display:flex;
+  display: flex;
 }
 
 /* General styling */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   background-color: #121212;
   color: #f5f5f5;
@@ -49,8 +49,8 @@ input[type="text"] {
   width: 250px;
 }
 
-.main-content{
-  flex:1;
+.main-content {
+  flex: 1;
 }
 
 button {
@@ -91,7 +91,7 @@ button:hover {
 }
 /* Flexbox for the movie grid */
 .movie-card {
-  flex: 1 1 calc(20% - 1.5rem); 
+  flex: 1 1 calc(20% - 1.5rem);
   max-width: 200px;
   background-color: white;
   border-radius: 12px;
@@ -100,11 +100,11 @@ button:hover {
   transition: transform 0.2s ease;
 }
 
-.movie-card .movie-card-buttons{
-   display: none; 
+.movie-card .movie-card-buttons {
+  display: none;
 }
 
-.movie-card:hover .movie-card-buttons{
+.movie-card:hover .movie-card-buttons {
   display: flex;
   opacity: 1;
 }
@@ -134,26 +134,25 @@ button:hover {
   color: black;
 }
 
-.movie-card-buttons{
+.movie-card-buttons {
   /* position: absolute; */
-  bottom:0.5rem;
+  bottom: 0.5rem;
   right: 0.5rem;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   /* padding: 0 10px; */
   margin-top: 8px;
   transition: opacity 0.3s ease;
   /* align-items: center; */
-  width:100%;
-
+  width: 100%;
 }
 
-.icon-btn{
-  background:transparent;
+.icon-btn {
+  background: transparent;
   border: none;
   font-size: 0.8rem;
-  padding:5px;
-  color:#444;
+  padding: 5px;
+  color: #444;
   cursor: pointer;
   transition: color 0.3s ease;
   display: flex;
@@ -161,7 +160,7 @@ button:hover {
   justify-content: center;
 }
 
-.icon-btn:hover{
+.icon-btn:hover {
   opacity: 0.8;
 }
 
@@ -182,15 +181,14 @@ button:hover {
   color: red !important;
 }
 
-.icon-btn.eye-btn{
-  color:gray;
+.icon-btn.eye-btn {
+  color: gray;
   /* margin-left: 20px; */
 }
 
-
 .movie-grid {
   display: flex;
-  flex-wrap:wrap ;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
   justify-content: center;
@@ -220,7 +218,7 @@ button:hover {
   max-height: 90vh;
   text-align: center;
   position: relative;
-  color:#111;
+  color: #111;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -276,7 +274,7 @@ input {
   font-weight: bold;
 }
 
-.favorite-btn:hover{
+.favorite-btn:hover {
   transform: scale(1.1);
   transition: transform 0.2s;
 }
@@ -336,10 +334,7 @@ input {
     flex-direction: column;
   }
 
-  .movie-grid{
-    grid-template-columns: repeat(auto-fill, minimax(140px,1fr));
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minimax(140px, 1fr));
   }
 }
-
-
-

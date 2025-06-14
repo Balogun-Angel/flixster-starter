@@ -1,27 +1,25 @@
-import './App.css';
-import { useState } from 'react';
-import MovieList from './MovieList';
-import Sidebar from './Sidebar';
-
-
+import "./App.css";
+import { useState } from "react";
+import MovieList from "./MovieList";
+import Sidebar from "./Sidebar";
 
 const App = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [mode, setMode] = useState('nowPlaying');
-  const [sortOption, setSortOption] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [mode, setMode] = useState("nowPlaying");
+  const [sortOption, setSortOption] = useState("");
   const [favorites, setFavorites] = useState([]);
   const [watched, setWatched] = useState([]);
-  const[view, setView]= useState('home');
+  const [view, setView] = useState("home");
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchQuery.trim() !== '') {
-      setMode('search');
+    if (searchQuery.trim() !== "") {
+      setMode("search");
     }
   };
   const handleNowPlaying = () => {
-    setSearchQuery('');
-    setMode('nowPlaying');
+    setSearchQuery("");
+    setMode("nowPlaying");
   };
 
   const toggleFavorite = (movie) => {
@@ -45,7 +43,7 @@ const App = () => {
       }
     });
   };
-  
+
   return (
     <div className="App">
       <header>
@@ -58,22 +56,24 @@ const App = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button type="submit">Search</button>
-          <button type="button" onClick={handleNowPlaying}>Clear</button>
+          <button type="button" onClick={handleNowPlaying}>
+            Clear
+          </button>
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            style={{ marginLeft: '1rem', padding: '0.3rem' }}>
+            style={{ marginLeft: "1rem", padding: "0.3rem" }}
+          >
             <option value="">Sort by</option>
             <option value="title">Title (A-Z)</option>
             <option value="release">Release Date</option>
             <option value="rating">Rating</option>
           </select>
-
         </form>
       </header>
 
       <div className="app-layout">
-        <Sidebar onSelectView={setView} /> 
+        <Sidebar onSelectView={setView} />
         <main className="main-content">
           <MovieList
             searchQuery={searchQuery}
@@ -91,7 +91,6 @@ const App = () => {
       <footer className="footer">
         <p>&copy; 2025 Flixster. All rights reserved.</p>
       </footer>
-
     </div>
   );
 };

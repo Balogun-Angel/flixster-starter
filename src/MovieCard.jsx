@@ -27,7 +27,7 @@ function MovieCard({
             e.stopPropagation();
             toggleWatched();
           }}
-          style={{backgroundColor:'rgba(0,0,0,0)', color: 'black'}}
+          style={{ backgroundColor: "rgba(0,0,0,0)", color: "black" }}
         >
           <FontAwesomeIcon icon={isWatched ? faEye : faEyeSlash} />
         </button>
